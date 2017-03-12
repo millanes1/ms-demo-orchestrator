@@ -8,9 +8,15 @@ services:
         - 8079:8080
       container_name: ms-demo-orchestrator
       external_links:
-         - ms-rest-todos:web-alias
+         - ms-rest-todos:web-alias-todos
+         - ms-rest-employee:web-alias-employee
       networks:
+           - default
            - msdisplaytypicode_default
+           - pocmcemployee_default
 networks:
+  default:
   msdisplaytypicode_default:
+    external: true
+  pocmcemployee_default:
     external: true

@@ -1,6 +1,8 @@
 package com.example.rest;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -15,6 +17,7 @@ public class TypiCode implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public TypiCode() {
+		employeeList=new ArrayList<Employee>();
 	}
 
 	private int userId;
@@ -24,6 +27,8 @@ public class TypiCode implements Serializable {
 	private String title;
 
 	private boolean completed;
+
+	private List<Employee> employeeList;
 
 	public int getId() {
 		return id;
@@ -50,6 +55,18 @@ public class TypiCode implements Serializable {
 
 	}
 
+	public boolean add(Employee employee) {
+		return getEmployeeList().add(employee);
+	}
+
+	public List<Employee> getEmployeeList() {
+		return employeeList;
+	}
+
+	public void setEmployeeList(List<Employee> employeeList) {
+		this.employeeList = employeeList;
+	}
+
 	public boolean getCompleted() {
 		return completed;
 	}
@@ -65,6 +82,7 @@ public class TypiCode implements Serializable {
 				", id=" + id +
 				", title='" + title + '\'' +
 				", completed=" + completed +
+				", employeeList=" + employeeList +
 				'}';
 	}
 }
