@@ -1,0 +1,16 @@
+version: '2'  
+services:
+     demo:
+      build: 
+        context: .
+        dockerfile: Dockerfile.dev
+      ports:
+        - 8079:8080
+      container_name: ms-demo-orchestrator
+      external_links:
+         - ms-rest-todos:web-alias
+      networks:
+           - msdisplaytypicode_default
+networks:
+  msdisplaytypicode_default:
+    external: true

@@ -1,0 +1,6 @@
+FROM java:openjdk-8-jdk
+
+ADD target/orchestrator-swarm.jar /opt/orchestrator-swarm.jar
+
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/opt/orchestrator-swarm.jar"]
